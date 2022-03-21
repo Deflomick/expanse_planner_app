@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './transaction.dart';
 import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -25,6 +27,10 @@ class MyHomePage extends StatelessWidget {
         dateTime: DateTime.now(),
         amount: 15.99),
   ];
+
+  String titleInput;
+  String amountInput;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +38,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children:<Widget>[
           Container(
@@ -42,7 +48,35 @@ class MyHomePage extends StatelessWidget {
               child: Text('Chart!'),
                elevation: 5,
             ),
-
+          ),
+          Card(
+            elevation: 5,
+            child:Container(
+              padding: EdgeInsets.all(10),
+              child:Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                    onChanged: (value) {
+                      titleInput=value;
+                    },
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                    onChanged: (value) => amountInput = value, //short
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      print(titleInput);
+                      print(amountInput);
+                    },
+                    child: Text('Add Transaction'),
+                    textColor: Colors.purple,
+                  ),
+          ],
+          ),
+          ),
           ),
           Column(children: transactions.map((tx) {
             return Card(
