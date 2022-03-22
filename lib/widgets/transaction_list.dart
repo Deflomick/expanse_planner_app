@@ -8,8 +8,13 @@ TransactionList(this.transactions);
 
 @override
   Widget build(BuildContext buildContext){
+ return Container(
+   height: 300,
 
-    return Column(children: transactions.map((tx) {
+    child: SingleChildScrollView(
+      child: Column(
+
+      children: transactions.map((tx) {
       return Card(
         child: Row(
           children: <Widget> [
@@ -56,7 +61,8 @@ TransactionList(this.transactions);
       );
 
     }).toList(),
-
-    );
+      ),
+  ),
+ );
   }
 }
