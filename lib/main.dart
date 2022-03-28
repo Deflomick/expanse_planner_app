@@ -18,6 +18,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple ,
         accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: TextStyle(
+            fontFamily: 'Quicksand',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'Opensans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+
+                ),
+            ),
+        ),
       ),
       home: MyHomePage(),
     );
@@ -36,13 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions =[
     Transaction(
       id: 't1',
-      title: 'New Shoes',
+      title: 'Nuove Scarpe',
       dateTime: DateTime.now(),
       amount: 69.99,
     ),
     Transaction(
       id: 't2',
-      title: 'Weekly Groceries',
+      title: 'Vino',
       dateTime: DateTime.now(),
       amount: 16.53,
     ),
@@ -79,7 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Spese Personali'),
+        title: Text(
+          'Spese Personali' ,
+          /*style: TextStyle(fontFamily: 'Opensans'
+          ), stile singolo per un solo testo non è sempre conveniente */
+        ),
         actions: <Widget>[
           IconButton(
               onPressed: () => _startAddNewTransaction(context),

@@ -41,11 +41,8 @@ TransactionList(this.transactions);
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget> [
                     Text(transactions[index].title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.green,
-                      ),),
+                      style: Theme.of(buildContext).textTheme.headline6,
+                    ),
                     Text(
                       DateFormat('yyyy-MM-dd').format(transactions[index].dateTime) ,
                       style: TextStyle(
