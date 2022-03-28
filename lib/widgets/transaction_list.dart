@@ -24,7 +24,7 @@ TransactionList(this.transactions);
                   ),
                   decoration: BoxDecoration(
                     border:Border.all(
-                      color: Colors.purple ,
+                      color: Theme.of(buildContext).primaryColor ,
                       width: 2 ,
                     ),
                   ),
@@ -34,7 +34,7 @@ TransactionList(this.transactions);
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.purple,
+                      color: Theme.of(buildContext).primaryColor,
                     ),
                   ),
                 ),Column(
