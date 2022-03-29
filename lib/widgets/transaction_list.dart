@@ -12,7 +12,23 @@ TransactionList(this.transactions);
    height: 300,
 
 
-      child: ListView.builder(
+      child: transactions.isEmpty ? Column(children: <Widget>[
+        Text('Ancora nessuna Transazione!',
+        style: Theme.of(buildContext).textTheme.headline6,
+        ),
+        SizedBox( //funge da separatore
+          height: 10,
+        ),
+        Container(
+          height: 200,
+            child:Image.asset(
+              'assets/images/waiting.png',
+              fit: BoxFit.cover,
+            ),
+        ),
+      ],
+      )
+          : ListView.builder(
         itemBuilder: (ctx,index){
           return Card(
             child: Row(
