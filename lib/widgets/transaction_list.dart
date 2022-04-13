@@ -10,11 +10,7 @@ TransactionList(this.transactions,this.deleteTx);
 
 @override
   Widget build(BuildContext buildContext){
- return Container(
-   height: MediaQuery.of(buildContext).size.height * 0.6 ,
-
-
-      child: transactions.isEmpty ?
+ return transactions.isEmpty ?
       Column(children: <Widget>[
         Text('Ancora nessuna Transazione!',
         style: Theme.of(buildContext).textTheme.headline6,
@@ -72,7 +68,7 @@ TransactionList(this.transactions,this.deleteTx);
         },
         itemCount: transactions.length,
 
-      ),
+
 
  );
   }

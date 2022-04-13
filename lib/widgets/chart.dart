@@ -42,9 +42,7 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // print(groupedTransactionsValues);
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.4,
-      child: Card(
+    return Card(
         elevation: 6,
         margin: EdgeInsets.all(20),
         child:Padding(
@@ -64,7 +62,7 @@ class Chart extends StatelessWidget {
     }).toList(),
       ),
     ),
-    ),
+
     );
   }
 }
