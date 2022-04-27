@@ -1,4 +1,9 @@
+
+import 'adaptive_button.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/widgets/adaptive_button.dart';
 import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
@@ -64,6 +69,9 @@ class _NewTransactionState extends State<NewTransaction>{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
+            /*CupertinoTextField(
+              placeholder: ,
+            ),*/
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: _titleController,
@@ -90,17 +98,11 @@ class _NewTransactionState extends State<NewTransaction>{
                           : 'Seleziona una data: ${DateFormat.yMd().format(_selectDate)}',
                   ),
                   ),
-                  FlatButton(
-                      textColor:Theme.of(context).primaryColor ,
-                      onPressed: _presentDatePicker,
-                      child: Text(
-                        'Scegli una data',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                  AdaptiveFlatButton(
+                      'Scegli una data',
+                      _presentDatePicker(),
+                  )
 
-                      ),
-                  ),
                 ],
               ),
             ),
