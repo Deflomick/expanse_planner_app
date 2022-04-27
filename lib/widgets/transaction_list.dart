@@ -10,25 +10,27 @@ TransactionList(this.transactions,this.deleteTx);
 
 @override
   Widget build(BuildContext buildContext){
- return transactions.isEmpty ?
-      LayoutBuilder(builder: (ctx, constraints){
-        return Column(children: <Widget>[
-          Text('Ancora nessuna Transazione!',
-            style: Theme.of(buildContext).textTheme.headline6,
-          ),
-          SizedBox( //funge da separatore
-            height: 10,
-          ),
-          Container(
-            height: constraints.maxHeight * 0.6,
+ return Container(
+   height: MediaQuery.of(buildContext).size.height * 0.6 ,
+
+
+      child: transactions.isEmpty ?
+      Column(children: <Widget>[
+        Text('Ancora nessuna Transazione!',
+        style: Theme.of(buildContext).textTheme.headline6,
+        ),
+        SizedBox( //funge da separatore
+          height: 10,
+        ),
+        Container(
+          height: 200,
             child:Image.asset(
               'assets/images/waiting.png',
               fit: BoxFit.cover,
             ),
-          ),
-        ],
-        );
-      })
+        ),
+      ],
+      )
           : ListView.builder(
         itemBuilder: (ctx,index){
 
@@ -59,12 +61,7 @@ TransactionList(this.transactions,this.deleteTx);
               DateFormat.yMMMd().format(transactions[index].dateTime),
 
             ),
-              trailing: MediaQuery.of(buildContext).size.width > 460 ? FlatButton.icon(
-                  onPressed: () => deleteTx(transactions[index].id),
-                  icon: Icon(Icons.delete),
-                  label: Text('Cancella'),
-                  textColor: Theme.of(buildContext).errorColor,
-              ): IconButton(
+              trailing: IconButton(
                 icon: Icon(Icons.delete),
                 color: Theme.of(buildContext).errorColor,
                 onPressed: () => deleteTx(transactions[index].id),
@@ -75,7 +72,7 @@ TransactionList(this.transactions,this.deleteTx);
         },
         itemCount: transactions.length,
 
-
+      ),
 
  );
   }
