@@ -100,7 +100,7 @@ class _NewTransactionState extends State<NewTransaction>{
                   ),
                   AdaptiveFlatButton(
                       'Scegli una data',
-                      _presentDatePicker(),
+                      _presentDatePicker,
                   )
 
                 ],
